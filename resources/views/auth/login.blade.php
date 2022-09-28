@@ -30,6 +30,7 @@
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />
+                <p class="text-gray-600 text-xs italic mt-2">Make it as long and as crazy as you'd like</p>
             </div>
 
             <!-- Remember Me -->

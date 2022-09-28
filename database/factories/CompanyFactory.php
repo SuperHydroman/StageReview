@@ -21,7 +21,10 @@ class CompanyFactory extends Factory
             'name' => fake()->name(),
             'slogan' => fake()->realText(25),
             'description' => fake()->realText(200),
-            'location' => fake()->city(),
+            'city' => fake()->city(),
+            'street_name' => fake()->streetName,
+            'house_number' => 1,
+            'zip_code' => strval(mt_rand(0000, 9999) . chr(rand(65,90)) . chr(rand(65,90))),
         ];
     }
 }

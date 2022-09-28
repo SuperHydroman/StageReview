@@ -15,8 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth')->group(function () {
+
+    // Homepage (companies.index)
     Route::get('/', [CompanyController::class, 'index'])->name('companies.index');
 
+    // All pages related to companies
+    Route::prefix('/companies')->group(function() {
+        Route::get('/create', [CompanyController::class, 'create'])->name('companies.create');
+        Route::post('/create', [CompanyController::class, 'store'])->name('companies.store');
+        Route::get('/details/{id}', [CompanyController::class, 'details'])->name('companies.details');
+    });
+
+    // All pages related to users
     Route::prefix('/users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('user.index');
     });

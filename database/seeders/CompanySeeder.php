@@ -20,7 +20,10 @@ class CompanySeeder extends Seeder
             'name' => 'Idea-X',
             'slogan' => 'Alles is mogelijk, als je maar begint',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-            'location' => 'Almkerk'
+            'city' => 'Almkerk',
+            'street_name' => 'Laagt',
+            'house_number' => 16,
+            'zip_code' => '4286 LV',
         ]);
     }
 }

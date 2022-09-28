@@ -16,7 +16,12 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('location');
+            $table->string('slogan')->nullable();
+            $table->string('description')->nullable();
+            $table->string('city');
+            $table->string('street_name');
+            $table->integer('house_number');
+            $table->string('zip_code');
             $table->timestamps();
         });
     }
