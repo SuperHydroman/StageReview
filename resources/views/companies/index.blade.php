@@ -4,7 +4,7 @@
 {{-- <x-header> imports the header component into this view. --}}
         <x-header :route="__('companies.create')">
             <x-slot:title> {{ __('Dashboard') }} </x-slot>
-            {{ __('+ Bedrijf toevoegen') }}
+            <i class="fa-solid fa-plus pr-2"></i> {{ __('Bedrijf toevoegen') }}
         </x-header>
     </x-slot>
 

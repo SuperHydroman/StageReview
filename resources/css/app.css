@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/*.max-w-8xl {*/
-/*    max-width: 88rem;*/
-/*}*/
+#myTab {
+    margin-bottom: -2px;
+}

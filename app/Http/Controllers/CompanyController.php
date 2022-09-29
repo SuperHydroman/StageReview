@@ -15,7 +15,7 @@ class CompanyController extends Controller
     }
 
     public function details($id) {
-        $company =  Company::where('id', $id)->first();
+        $company =  Company::find($id);
 
         return view('companies.details', compact('company'));
     }

@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slogan')->nullable();
-            $table->string('description')->nullable();
-            $table->string('city');
-            $table->string('street_name');
+            $table->tinyText('name');
+            $table->tinyText('slogan')->nullable();
+            $table->string('description', 500)->nullable();
+            $table->tinyText('city');
+            $table->tinyText('street_name');
             $table->integer('house_number');
-            $table->string('zip_code');
+            $table->tinyText('zip_code');
             $table->timestamps();
         });
     }
