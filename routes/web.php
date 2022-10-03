@@ -30,6 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('user.index');
     });
+
+    // All pages related to roles
+    Route::get('roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
+
 });
 
 require __DIR__.'/auth.php';
