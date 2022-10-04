@@ -34,6 +34,13 @@ class UserController extends Controller
     {
         $password = Str::random(8);
 
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'password' => 'required',
+            'email' => 'required'
+        ]);
+
         User::create([
             'name' => $request->firstname . " " . $request->middlename . " " . $request->lastname,
             'firstname' => $request->firstname,
@@ -54,6 +61,13 @@ class UserController extends Controller
     // Update to db
     function update(Request $request, $id)
     {
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'password' => 'required',
+            'email' => 'required'
+        ]);
+
         User::find($id)->update([
             'name' => $request->firstname . " " . $request->middlename . " " . $request->lastname,
             'firstname' => $request->firstname,
