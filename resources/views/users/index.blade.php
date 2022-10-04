@@ -78,6 +78,9 @@
                                     Naam
                                 </th>
                                 <th scope="col" class="py-3 px-6">
+                                    E-mail
+                                </th>
+                                <th scope="col" class="py-3 px-6">
                                     Rol
                                 </th>
                                 <th scope="col" class="py-3 px-6">
@@ -99,6 +102,9 @@
                             </th>
                             <td class="py-4 px-6">
                                 {{$user->name}}
+                            </td>
+                            <td class="py-4 px-6">
+                                {{$user->email}}
                             </td>
                             <td class="py-4 px-6">
 {{--                                {{$user->role}}--}}
