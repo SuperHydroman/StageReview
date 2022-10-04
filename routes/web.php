@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,16 @@ Route::middleware('auth')->group(function () {
 
     // All pages related to users
     Route::prefix('/users')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('user.index');
+        Route::get('/', [UserController::class, 'index'])->name('users.index');
+
+        Route::get('/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('/create', [UserController::class, 'store'])->name('users.store');
+
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+        Route::post('/edit/{id}', [UserController::class, 'update'])->name('users.update');
+
+        Route::get('/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
+        Route::post('/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 
     // All pages related to roles
