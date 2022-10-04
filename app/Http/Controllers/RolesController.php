@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Roles;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
     public function index()
     {
-        $roles = Roles::all();
+        $roles = Role::all();
         return view('roles.index', ['roles'=>$roles]);
     }
 }
