@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function () {
     // All pages related to roles
     Route::get('roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
 
+    // All pages related to tags
+    Route::get('tags', [App\Http\Controllers\TagController::class, 'index'])->name('tags.index');
+
 });
 
 require __DIR__.'/auth.php';
