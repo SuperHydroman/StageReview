@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
         Route::post('/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+        Route::get('users', [UserController::class,'index'])->name('users.search');
     });
 
     // All pages related to roles

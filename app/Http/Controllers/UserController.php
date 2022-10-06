@@ -16,9 +16,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10);
+
+        $users = User::where([
+            ['name', '!=', Null],
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                        ->orWhere('email', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->paginate(10);
+
         return view('users.index', compact('users'));
     }
 
