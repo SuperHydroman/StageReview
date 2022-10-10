@@ -44,7 +44,16 @@ Route::middleware('auth')->group(function () {
     });
 
     // All pages related to roles
-    Route::get('roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
+    Route::group(['middleware' =>'auth'], function() {
+        Route::group( [
+            'prefix' => 'admin',
+            'middleware' => 'is_admin',
+            'as' => 'Admin.',
+        ], function() {
+            Route::get('roles',
+                [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
+        });
+    });
 
 });
 

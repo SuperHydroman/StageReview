@@ -15,8 +15,8 @@
                     <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">
                         {{ __('Bedrijven') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
-                        {{ __('Role') }}
+                    <x-nav-link :href="route('Admin.roles.index')" :active="request()->routeIs('Admin.roles.index')">
+                        {{ __('Rollen') }}
                     </x-nav-link>
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Gebruikers') }}
