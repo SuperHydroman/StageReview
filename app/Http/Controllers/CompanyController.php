@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
 //    Index Page
     public function index() {
-        $companies = Company::all();
+        $companies = Company::All();
 
         return view('companies.index', compact('companies'));
     }

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IsAdminMiddleware
 {
@@ -16,10 +17,19 @@ class IsAdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || !auth()->user()->is_admin) {
+
+        if(Auth::user()->role_id == 1) {
+            return $next($request);
+        }
+        elseif (Auth::user()->role_id == 2) {
+            abort(403);
+        }
+        elseif (Auth::user()->role_id == 3) {
+            abort(403);
+        }
+        elseif (Auth::user()->role_id == 4) {
             abort(403);
         }
 
-        return $next($request);
     }
 }

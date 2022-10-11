@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'id' => 1,
+            'role_id' => 1,
             'is_admin' => '1',
             'name' => env('APP_NAME'),
             'firstname' => "Stage",
@@ -27,6 +28,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'id' => 2,
+            'role_id' => 2,
             'is_admin' => '0',
             'name' => "johndenver",
             'firstname' => "John",
