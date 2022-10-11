@@ -30,14 +30,14 @@ class UserController extends Controller
             }]
         ])->paginate(10);
 
-        return view('users.index', compact('users'));
+        return view('teacher.users.index', compact('users'));
     }
 
     // Create index
     function create()
     {
         $users = User::all();
-        return view('users.create', compact('users'));
+        return view('teacher.users.create', compact('users'));
     }
 
     // Save to db
@@ -59,7 +59,7 @@ class UserController extends Controller
             'password' => bcrypt($password),
             'email' => $request->email,
         ]);
-        return redirect()->route('users.index');
+        return redirect()->route('teacher.users.index');
     }
 
     // Edit index
@@ -86,21 +86,21 @@ class UserController extends Controller
             'password' => bcrypt($password),
             'email' => $request->email,
         ]);
-        return redirect()->route('users.index');
+        return redirect()->route('teacher.users.index');
     }
 
     // Delete index
     function delete($id)
     {
         $user = User::find($id);
-        return view('users.delete', compact('user'));
+        return view('teacher.users.delete', compact('user'));
     }
 
     // Delete from db
     function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('teacher.users.index');
     }
 
 }

@@ -15,10 +15,10 @@
                     <x-nav-link :href="route('companies.index')" :active="request()->routeIs('companies.index')">
                         {{ __('Bedrijven') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('Admin.roles.index')" :active="request()->routeIs('Admin.roles.index')">
+                    <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.index')">
                         {{ __('Rollen') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    <x-nav-link :href="route('teacher.users.index')" :active="request()->routeIs('teacher.users.index')">
                         {{ __('Gebruikers') }}
                     </x-nav-link>
                 </div>

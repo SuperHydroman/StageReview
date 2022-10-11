@@ -10,7 +10,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-2 bg-white border-b border-gray-200 py-8">
-                    <form id="form" method="POST" action {{ route('companies.store') }} class="w-full max-w-lg mx-auto">
+                    <form id="form" method="POST" action {{ route('admin.companies.store') }} class="w-full max-w-lg mx-auto">
                         <x-form-validation-errors class="mb-4" :errors="$errors"/>
                         @csrf
                         <div class="flex flex-wrap -mx-3 mb-6">

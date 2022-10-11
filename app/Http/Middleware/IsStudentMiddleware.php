@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IsAdminMiddleware
+class IsStudentMiddleware
 {
     /**
      * Handle an incoming request.
@@ -19,19 +19,19 @@ class IsAdminMiddleware
     {
 
         if(Auth::user()->role_id == 1) {
-            return $next($request);
+            abort(403);
         }
         elseif (Auth::user()->role_id == 2) {
-            abort(403);
+            return $next($request);
         }
         elseif (Auth::user()->role_id == 3) {
-            abort(403);
+            return $next($request);
         }
         elseif (Auth::user()->role_id == 4) {
             abort(403);
         }
         else {
-            return $next($request);
+            abort(403);
         }
 
     }
