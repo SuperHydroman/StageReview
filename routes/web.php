@@ -19,30 +19,68 @@ Route::middleware('auth')->group(function () {
 
     // Homepage (companies.index)
     Route::get('/', [CompanyController::class, 'index'])->name('companies.index');
-
-    // All pages related to companies
     Route::prefix('/companies')->group(function() {
+<<<<<<< HEAD
         Route::get('/create', [CompanyController::class, 'create'])->name('companies.create');
         Route::post('/create', [CompanyController::class, 'store'])->name('companies.store');
+
+        Route::get('/edit/{id}', [CompanyController::class, 'edit'])->name('companies.edit');
+        Route::post('/edit/{id}', [CompanyController::class, 'update'])->name('companies.update');
+
+        Route::get('/delete/{id}', [CompanyController::class, 'delete'])->name('companies.delete');
+        Route::post('/delete/{id}', [CompanyController::class, 'destroy'])->name('companies.destroy');
+
+=======
+>>>>>>> origin/master
         Route::get('/details/{id}', [CompanyController::class, 'details'])->name('companies.details');
     });
 
-    // All pages related to users
-    Route::prefix('/users')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('users.index');
-
-        Route::get('/create', [UserController::class, 'create'])->name('users.create');
-        Route::post('/create', [UserController::class, 'store'])->name('users.store');
-
-        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
-        Route::post('/edit/{id}', [UserController::class, 'update'])->name('users.update');
-
-        Route::get('/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
-        Route::post('/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
-    });
-
     // All pages related to roles
-    Route::get('roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
+    Route::group(['middleware' =>'auth'], function() {
+//        Route::group( [
+//            'prefix' => 'student',
+//            'middleware' => 'is_student',
+//            'as' => 'student.',
+//        ], function() {
+//
+//        });
+
+        Route::group( [
+            'prefix' => 'teacher',
+            'middleware' => 'is_teacher',
+            'as' => 'teacher.',
+        ], function() {
+            Route::prefix('/users')->group(function () {
+
+                Route::get('/', [UserController::class, 'index'])->name('users.index');
+                Route::get('users', [UserController::class,'index'])->name('users.search');
+
+                Route::get('/create', [UserController::class, 'create'])->name('users.create');
+                Route::post('/create', [UserController::class, 'store'])->name('users.store');
+
+                Route::get('/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+                Route::post('/edit/{id}', [UserController::class, 'update'])->name('users.update');
+
+                Route::get('/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
+                Route::post('/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+            });
+
+        });
+
+        Route::group( [
+            'prefix' => 'admin',
+            'middleware' => 'is_admin',
+            'as' => 'admin.',
+        ], function() {
+            Route::prefix('/companies')->group(function() {
+                Route::get('/create', [CompanyController::class, 'create'])->name('companies.create');
+                Route::post('/create', [CompanyController::class, 'store'])->name('companies.store');
+            });
+            Route::get('roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
+        });
+
+    });
 
 });
 

@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
 //    Index Page
     public function index() {
-        $companies = Company::all();
+        $companies = Company::paginate(10);
 
         return view('companies.index', compact('companies'));
     }
@@ -22,7 +23,7 @@ class CompanyController extends Controller
 
 //    Create index page
     public function create() {
-        return view('companies.create');
+        return view('admin.companies.create');
     }
 
 //   Create to DB
@@ -49,14 +50,43 @@ class CompanyController extends Controller
     }
 
 //    Edit index page
-    public function edit() {}
+    public function edit($id) {
+        $company = Company::find($id);
+
+        return view('companies.update', compact('company'));
+    }
 
 //    Edit to DB
-    public function update() {}
+    public function update(Request $request, $id) {
+        $request->validate([
+            'naam' => 'required',
+            'straatnaam' => 'required',
+            'huisnummer' => 'required',
+            'stad' => 'required',
+            'postcode' => 'required'
+        ]);
+        Company::find($id)->update([
+            'name' => $request->naam,
+            'slogan' => $request->slogan,
+            'description' => $request->beschrijving,
+            'city' => $request->stad,
+            'zip_code' => $request->postcode,
+            'street_name' => $request->straatnaam,
+            'house_number' => $request->huisnummer,
+        ]); return redirect(route('companies.details', $id));
+    }
 
 //    Delete index page
-    public function delete() {}
+    public function delete($id) {
+        $company = Company::find($id);
+
+        return view('companies.delete', compact('company'));
+    }
 
 //    Delete from DB
-    public function destroy() {}
+    public function destroy($id) {
+        Company::find($id)->delete();
+
+        return redirect(route('companies.index'));
+    }
 }

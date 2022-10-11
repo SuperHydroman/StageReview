@@ -20,7 +20,15 @@ class RoleSeeder extends Seeder
         ]);
         Role::create([
             'id' => 2,
-            'name' => 'User'
+            'name' => 'Anonymous'
+        ]);
+        Role::create([
+            'id' => 3,
+            'name' => 'Student'
+        ]);
+        Role::create([
+            'id' => 4,
+            'name' => 'Teacher'
         ]);
     }
 }
