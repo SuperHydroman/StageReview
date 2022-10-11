@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
 
-        <x-header :formname="__('update-user-form')">
-            <x-slot:title> {{ __('De gebruiker \'' . $user->name .'\' bewerken') }} </x-slot>
-            <i class="fas fa-save pr-2"></i> {{__('Opslaan')}}
+        <x-header :formname="__('create-user-form')">
+            <x-slot:title>{{ __('Gebruiker toevoegen') }}</x-slot>
+            <i class="fas fa-plus pr-2"></i> {{__('Toevoegen')}}
     </x-header>
 
     </x-slot>
@@ -12,7 +12,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form id="update-user-form" action="{{ route('teacher.users.update', $user->id) }}" method="POST">
+                    <form id="create-user-form" class="" action="{{ route('users.store') }}"
+                          method="POST">
                         <x-form-validation-errors class="mb-4" :errors="$errors"/>
                         @csrf
                         <div class="flex flex-wrap -mx-3 mb-6">
@@ -23,7 +24,7 @@
                                 </label>
                                 <input name="firstname"
                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                       id="grid-city" type="text" placeholder={{ $user->firstname }}>
+                                       id="grid-city" type="text" placeholder="Jane">
                             </div>
                             <div class="md:w-1/3 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -32,7 +33,7 @@
                                 </label>
                                 <input name="middlename"
                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                       id="grid-city" type="text" placeholder={{ $user->middlename }}>
+                                       id="grid-city" type="text" placeholder="de">
                             </div>
                             <div class="md:w-1/3 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -41,7 +42,7 @@
                                 </label>
                                 <input name="lastname"
                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                       id="grid-zip" type="text" placeholder={{ $user->lastname }}>
+                                       id="grid-zip" type="text" placeholder="Doe">
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
@@ -63,7 +64,7 @@
                                 </label>
                                 <input name="email"
                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                       id="grid-email" type="email" placeholder={{ $user->email }}>
+                                       id="grid-email" type="email" placeholder="mail@mail.nl">
                             </div>
                         </div>
                     </form>

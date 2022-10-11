@@ -2,7 +2,7 @@
     <x-slot name="header" class="flex container justify-between">
 
         {{-- <x-header> imports the header component into this view. --}}
-        <x-header :route="__('admin.companies.create')">
+        <x-header :route="__('companies.create')">
             <x-slot:title> {{ __('Rollen') }} </x-slot>
     <i class="fa-solid fa-plus pr-2"></i> {{ __('Rol toewijzen') }}
         </x-header>
