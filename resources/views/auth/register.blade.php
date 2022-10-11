@@ -34,6 +34,7 @@
                                 type="password"
                                 name="password"
                                 required autocomplete="new-password" />
+                <p class="text-gray-600 text-xs italic mt-2">Make it as long and as crazy as you'd like</p>
             </div>
 
             <!-- Confirm Password -->
@@ -43,6 +44,7 @@
                 <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
                                 name="password_confirmation" required />
+                <p class="text-gray-600 text-xs italic mt-2">Hopefully you typed it correctly :)</p>
             </div>
 
             <div class="flex items-center justify-end mt-4">

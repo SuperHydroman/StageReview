@@ -18,6 +18,8 @@ class CompanySeeder extends Seeder
         Company::create([
             'id' => 1,
             'name' => 'Idea-X',
+            'email' => 'info@idea-x.com',
+            'phone_number' => '+31 6 123 456 78',
             'slogan' => 'Alles is mogelijk, als je maar begint',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
             'city' => 'Almkerk',

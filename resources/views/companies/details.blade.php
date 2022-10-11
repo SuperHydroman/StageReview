@@ -1,8 +1,10 @@
 <x-app-layout>
     <x-slot name="header" class="flex container justify-between">
-        <x-header :formname="__('form')">
+        <x-header :route="__('admin.companies.edit')">
+            <x-slot:routeID>{{ __($company->id) }}</x-slot>
             <x-slot:title> {{ __('Details van ' . $company->name) }} </x-slot>
-            {{ __('Bewerken') }}
+
+{{--            <i class="fa-solid fa-pencil pr-2"></i> {{ __('Bewerken') }}--}}
         </x-header>
     </x-slot>
 
@@ -10,8 +12,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="bg-white border-b border-gray-200 p-6 py-8 grid grid-cols-3 grid-rows-auto gap-12">
-                    <div id="company-map-content" class="border-2 border-black mx-auto">
-                        <iframe
+                    <div id="company-map-content" class="rounded-lg border-2 border-black mx-auto">
+                        <iframe class="rounded-lg"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2469.0011748782276!2d4.983839951503908!3d51.769585699220045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c68f929034ef8d%3A0xcd5c3c3628cf263b!2sIdea-X%20B.V.!5e0!3m2!1snl!2snl!4v1664406366129!5m2!1snl!2snl"
                             width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -19,7 +21,10 @@
                     <div id="company-content" class="px-6 row-span-2 col-span-2 grid grid-rows-auto gap-8">
 
                         <div class="flex items-center">
-                            <h1 id="company-title" class="inline-block text-4xl font-bold pr-6">{{ $company->name }}</h1>
+                            <div id="title-container">
+                                <h1 id="company-title" class="block text-4xl font-bold pr-6 mb-3">{{ $company->name }}</h1>
+                                <small class="text-sky-500 block">{{ $company->slogan }}</small>
+                            </div>
                             <span class="text-gray-400"><i class="px-2 fa-solid fa-location-dot"></i>{{ $company->city }}</span>
                         </div>
 
@@ -41,7 +46,7 @@
                                     data-tabs-toggle="#myTabContent" role="tablist">
                                     <li class="mr-2" role="presentation">
                                         <button
-                                            class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
+                                            class="inline-block p-4 rounded-t-lg border-b-2 text-gray-700 hover:text-sky-500 dark:text-sky-500 dark:hover:text-sky-500 border-sky-500 dark:border-sky-500"
                                             id="stages-tab" data-tabs-target="#stages" type="button" role="tab"
                                             aria-controls="stages" aria-selected="true">Stages
                                         </button>
@@ -74,7 +79,7 @@
                                         <h3 class="text-sm font-bold text-gray-500">Contact informatie</h3>
                                         <div class="grid grid-cols-2">
                                             <p class="text-left">Telefoonnummer:</p>
-                                            <a href="tel:+31(0)852 733 075" class="text-right text-sky-500 font-bold">+31(0)852 733 075</a>
+                                            <a href="tel:{{ $company->phone_number }}" class="text-right text-sky-500 font-bold">{{ $company->phone_number }}</a>
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <p class="text-left">Adres:</p>
@@ -82,7 +87,7 @@
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <p class="text-left">Email:</p>
-                                            <a href="mailto:info@idea-x.nl" class="text-right text-sky-500 font-bold">info@idea-x.nl</a>
+                                            <a href="mailto:{{ $company->email }}" class="text-right text-sky-500 font-bold">{{ $company->email }}</a>
                                         </div>
                                         <div class="grid grid-cols-2">
                                             <p class="text-left">Website:</p>
