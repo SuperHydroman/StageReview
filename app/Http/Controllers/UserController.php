@@ -66,7 +66,7 @@ class UserController extends Controller
     function edit($id)
     {
         $user = User::find($id);
-        return view('users.update', compact('user'));
+        return view('teacher.users.update', compact('user'));
     }
 
     // Update to db

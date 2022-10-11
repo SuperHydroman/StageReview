@@ -52,7 +52,7 @@ class CompanyController extends Controller
     public function edit($id) {
         $company = Company::find($id);
 
-        return view('companies.update', compact('company'));
+        return view('admin.companies.update', compact('company'));
     }
 
 //    Edit to DB
@@ -79,7 +79,7 @@ class CompanyController extends Controller
     public function delete($id) {
         $company = Company::find($id);
 
-        return view('companies.delete', compact('company'));
+        return view('admin.companies.delete', compact('company'));
     }
 
 //    Delete from DB
