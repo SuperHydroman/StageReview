@@ -30,6 +30,7 @@
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />
+                <p class="text-gray-600 text-xs italic mt-2">Make it as long and as crazy as you'd like</p>
             </div>
 
             <!-- Remember Me -->
@@ -40,12 +41,8 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-between mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Register here') }}
-                </a>
-
-                @if ( Route::has('password.request') )
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
