@@ -23,7 +23,7 @@ class CompanyController extends Controller
 
 //    Create index page
     public function create() {
-        return view('companies.create');
+        return view('admin.companies.create');
     }
 
 //   Create to DB

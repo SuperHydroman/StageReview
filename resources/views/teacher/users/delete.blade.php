@@ -12,7 +12,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form id="delete-user-form" action="{{ route('users.destroy', $user->id) }}" method="post">
+                    <form id="delete-user-form" action="{{ route('teacher.users.destroy', $user->id) }}" method="post">
                     @csrf
                         <dl class="max-w-md text-gray-900 dark:text-white dark:divide-gray-700">
                             <div class="flex flex-col pb-3">
