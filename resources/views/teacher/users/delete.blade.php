@@ -25,9 +25,9 @@
                             </div>
                             <div class="flex flex-col pt-3">
                                 <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Rol</dt>
-{{--                                <dd class="text-lg font-semibold">{{$gebruiker->role}}</dd>--}}
-                                <dd class="text-lg font-semibold">Gebruiker</dd>
+                                <dd class="text-lg font-semibold">{{$user->role->name}}</dd>
                             </div>
+
                         </dl>
                     </form>
                 </div>

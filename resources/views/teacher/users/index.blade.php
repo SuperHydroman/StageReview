@@ -108,8 +108,7 @@
                                 {{$user->email}}
                             </td>
                             <td class="py-4 px-6">
-{{--                                {{$user->role}}--}}
-                                Gebruiker
+                                {{$user->role->name}}
                             </td>
                             <td class="py-4 px-6">
                                 <a href="{{ route('teacher.users.edit', $user->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Aanpassen</a>

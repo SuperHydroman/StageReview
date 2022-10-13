@@ -46,6 +46,7 @@ class UserController extends Controller
         $password = Str::random(8);
 
         $request->validate([
+            'role_id' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
             'password' => 'required',
@@ -53,6 +54,7 @@ class UserController extends Controller
         ]);
 
         User::create([
+            'role_id' => $request->role_id,
             'name' => $request->firstname . " " . $request->middlename . " " . $request->lastname,
             'firstname' => $request->firstname,
             'lastname' => $request->middlename . " " . $request->lastname,
@@ -73,6 +75,7 @@ class UserController extends Controller
     function update(Request $request, $id)
     {
         $request->validate([
+            'role_id' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
             'password' => 'required',
@@ -80,10 +83,11 @@ class UserController extends Controller
         ]);
 
         User::find($id)->update([
+            'role_id' => $request->role_id,
             'name' => $request->firstname . " " . $request->middlename . " " . $request->lastname,
             'firstname' => $request->firstname,
             'lastname' => $request->middlename . " " . $request->lastname,
-            'password' => bcrypt($password),
+            'password' => bcrypt($request->password),
             'email' => $request->email,
         ]);
         return redirect()->route('teacher.users.index');

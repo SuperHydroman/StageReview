@@ -62,10 +62,14 @@ Route::middleware('auth')->group(function () {
             'as' => 'admin.',
         ], function() {
             Route::prefix('/companies')->group(function() {
+
                 Route::get('/create', [CompanyController::class, 'create'])->name('companies.create');
                 Route::post('/create', [CompanyController::class, 'store'])->name('companies.store');
+
             });
+
             Route::get('roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
+
         });
 
     });

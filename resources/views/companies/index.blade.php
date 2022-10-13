@@ -24,6 +24,7 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="mt-5">{{ $companies->links() }}</div>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
         <x-header :formname="__('create-user-form')">
             <x-slot:title>{{ __('Gebruiker toevoegen') }}</x-slot>
             <i class="fas fa-plus pr-2"></i> {{__('Toevoegen')}}
-    </x-header>
+        </x-header>
 
     </x-slot>
 
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full px-3">
+                            <div class="w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                        for="grid-password">
                                     Wachtwoord
@@ -55,9 +55,7 @@
                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                        id="grid-password" type="password" placeholder="******************">
                             </div>
-                        </div>
-                        <div class="flex flex-wrap -mx-3 mb-6">
-                            <div class="w-full px-3">
+                            <div class="w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                        for="grid-email">
                                     E-mail
@@ -65,6 +63,17 @@
                                 <input name="email"
                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                        id="grid-email" type="email" placeholder="mail@mail.nl">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                       for="grid-role">
+                                    Rol
+                                </label>
+                                <input name="role_id"
+                                       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                       id="grid-role" type="number" placeholder="Nummer tussen 1 en 4">
                             </div>
                         </div>
                     </form>
